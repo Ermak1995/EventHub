@@ -4,8 +4,9 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import viewsets
 
-from .models import Events
-from .serializers import EventsSerializer
+from .models import Events, Registrations, Eventtickets, Eventtypes, Locations, Organizers
+from .serializers import EventsSerializer, EventticketsSerializer, EventtypesSerializer, LocationsSerializer, \
+    OrganizersSerializer, RegistrationsSerializer
 
 
 # @api_view(['GET'])
@@ -19,4 +20,26 @@ class EventsViewSet(viewsets.ModelViewSet):
     serializer_class = EventsSerializer
 
 
-# TODO: make web-interface for CRUD
+class EventticketsViewSet(viewsets.ModelViewSet):
+    queryset = Eventtickets.objects.all()
+    serializer_class = EventticketsSerializer
+
+
+class EventtypesViewSet(viewsets.ModelViewSet):
+    queryset = Eventtypes.objects.all()
+    serializer_class = EventtypesSerializer
+
+
+class LocationsViewSet(viewsets.ModelViewSet):
+    queryset = Locations.objects.all()
+    serializer_class = LocationsSerializer
+
+
+class OrganizersViewSet(viewsets.ModelViewSet):
+    queryset = Organizers.objects.all()
+    serializer_class = OrganizersSerializer
+
+
+class RegistrationsViewSet(viewsets.ModelViewSet):
+    queryset = Registrations.objects.all()
+    serializer_class = RegistrationsSerializer
