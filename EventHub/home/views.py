@@ -1,3 +1,4 @@
+from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.shortcuts import render
@@ -10,7 +11,7 @@ from rest_framework.views import APIView
 
 from .models import Events, Registrations, Eventtickets, Eventtypes, Locations, Organizers
 from .serializers import EventsSerializer, EventticketsSerializer, EventtypesSerializer, LocationsSerializer, \
-    OrganizersSerializer, RegistrationsSerializer, UserSerializer
+    OrganizersSerializer, RegistrationsSerializer
 
 
 # @api_view(['GET'])
@@ -49,8 +50,4 @@ class RegistrationsViewSet(viewsets.ModelViewSet):
     serializer_class = RegistrationsSerializer
 
 
-class RegisterView(CreateAPIView):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
-    permission_classes = [AllowAny]
 

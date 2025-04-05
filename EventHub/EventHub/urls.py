@@ -21,6 +21,7 @@ from django.views.generic import RedirectView
 urlpatterns = [
     path('', RedirectView.as_view(url='api/events/'), name='api'),
     path('admin/', admin.site.urls),
+    path('accounts/', include('accounts.urls')),
     path('api/', include('home.urls')),
 
 ]
