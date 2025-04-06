@@ -5,8 +5,8 @@ from . import views
 
 router = DefaultRouter()
 router.register('events', views.EventsViewSet)
-router.register('eventtickets', views.EventticketsViewSet)
-router.register('eventtypes', views.EventtypesViewSet)
+router.register('EventTickets', views.EventTicketsViewSet)
+router.register('EventTypes', views.EventTypesViewSet)
 router.register('locations', views.LocationsViewSet)
 router.register('organizers', views.OrganizersViewSet)
 router.register('registrations', views.RegistrationsViewSet)
