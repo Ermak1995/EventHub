@@ -9,20 +9,20 @@ from rest_framework.response import Response
 from rest_framework import viewsets
 from rest_framework.views import APIView
 
-from .models import Events, Registrations, TicketTypes, EventTickets, EventTypes, Locations, Organizers
-from .serializers import EventsSerializer, EventTicketsSerializer, EventTypesSerializer, LocationsSerializer, \
-    OrganizersSerializer, RegistrationsSerializer
+from .models import Event, Registration, TicketType, EventTicket, EventType, Location, Organizer
+from .serializers import EventSerializer, EventTicketSerializer, EventTypeSerializer, LocationSerializer, \
+    OrganizerSerializer, RegistrationSerializer
 
 
 # @api_view(['GET'])
 # def event_list(request):
-#     events = Events.objects.all()
-#     serializer = EventsSerializer(events, many=True)
+#     events = Event.objects.all()
+#     serializer = EventSerializer(events, many=True)
 #     return Response(serializer.data)
 
-class EventsViewSet(viewsets.ModelViewSet):
-    queryset = Events.objects.all()
-    serializer_class = EventsSerializer
+class EventViewSet(viewsets.ModelViewSet):
+    queryset = Event.objects.all()
+    serializer_class = EventSerializer
 
     def get_permissions(self):
         if self.action in ['list', 'retrieve']:
@@ -30,26 +30,26 @@ class EventsViewSet(viewsets.ModelViewSet):
         return [IsAuthenticated()]
 
 
-class EventTicketsViewSet(viewsets.ModelViewSet):
-    queryset = EventTickets.objects.all()
-    serializer_class = EventTicketsSerializer
+class EventTicketViewSet(viewsets.ModelViewSet):
+    queryset = EventTicket.objects.all()
+    serializer_class = EventTicketSerializer
 
 
-class EventTypesViewSet(viewsets.ModelViewSet):
-    queryset = EventTypes.objects.all()
-    serializer_class = EventTypesSerializer
+class EventTypeViewSet(viewsets.ModelViewSet):
+    queryset = EventType.objects.all()
+    serializer_class = EventTypeSerializer
 
 
-class LocationsViewSet(viewsets.ModelViewSet):
-    queryset = Locations.objects.all()
-    serializer_class = LocationsSerializer
+class LocationViewSet(viewsets.ModelViewSet):
+    queryset = Location.objects.all()
+    serializer_class = LocationSerializer
 
 
-class OrganizersViewSet(viewsets.ModelViewSet):
-    queryset = Organizers.objects.all()
-    serializer_class = OrganizersSerializer
+class OrganizerViewSet(viewsets.ModelViewSet):
+    queryset = Organizer.objects.all()
+    serializer_class = OrganizerSerializer
 
 
-class RegistrationsViewSet(viewsets.ModelViewSet):
-    queryset = Registrations.objects.all()
-    serializer_class = RegistrationsSerializer
+class RegistrationViewSet(viewsets.ModelViewSet):
+    queryset = Registration.objects.all()
+    serializer_class = RegistrationSerializer

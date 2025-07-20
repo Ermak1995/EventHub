@@ -1,42 +1,42 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
 
-from .models import Events, EventTickets, EventTypes, Locations, Organizers, Registrations
+from .models import Event, EventTicket, EventType, Location, Organizer, Registration
 
 
-class EventsSerializer(serializers.ModelSerializer):
+class EventSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Events
+        model = Event
         fields = '__all__'
 
 
-class EventTicketsSerializer(serializers.ModelSerializer):
+class EventTicketSerializer(serializers.ModelSerializer):
     class Meta:
-        model = EventTickets
+        model = EventTicket
         fields = '__all__'
 
 
-class EventTypesSerializer(serializers.ModelSerializer):
+class EventTypeSerializer(serializers.ModelSerializer):
     class Meta:
-        model = EventTypes
+        model = EventType
         fields = '__all__'
 
 
-class LocationsSerializer(serializers.ModelSerializer):
+class LocationSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Locations
+        model = Location
         fields = '__all__'
 
 
-class OrganizersSerializer(serializers.ModelSerializer):
+class OrganizerSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Organizers
+        model = Organizer
         fields = '__all__'
 
 
-class RegistrationsSerializer(serializers.ModelSerializer):
+class RegistrationSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Registrations
+        model = Registration
         fields = '__all__'
 
 
